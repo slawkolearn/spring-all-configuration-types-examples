@@ -25,17 +25,18 @@
 	<!-- Define the dependency -->
 
 	<bean id="shortSpeach"
-		class="com.slawomirlasik.springdemo.ShortSpeachService">
+		class="com.slawomirlasik.springdemo.ShortSpeachService"
+		init-method="checkTheTyposInSpeach"
+		destroy-method="burnThisSpeach">
 	</bean>
 
 	<bean id="slawkoSpeaker"
-		class="com.slawomirlasik.springdemo.SlawkoSpeaker"
-		scope="singleton"> <!-- check singleton / prototype -->
-			
-			<property name="speachService" ref="shortSpeach" />
-	
-			<property name="email" value="${foo.email}" />
-			<property name="school" value="${foo.school}" />
+		class="com.slawomirlasik.springdemo.SlawkoSpeaker" scope="singleton"> <!-- check singleton / prototype -->
+
+		<property name="speachService" ref="shortSpeach" />
+
+		<property name="email" value="${foo.email}" />
+		<property name="school" value="${foo.school}" />
 
 	</bean>
 
