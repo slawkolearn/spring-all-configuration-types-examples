@@ -6,9 +6,10 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    
-    <!-- load property file -->
-    <context:property-placeholder location="classpath:property_file.properties"/>
+
+	<!-- load property file -->
+	<context:property-placeholder
+		location="classpath:property_file.properties" />
 
 
 	<!-- Define your beans here -->
@@ -28,11 +29,14 @@
 	</bean>
 
 	<bean id="slawkoSpeaker"
-		class="com.slawomirlasik.springdemo.SlawkoSpeaker">
-		<property name="speachService" ref="shortSpeach" />
-		
-		<property name="email" value="${foo.email}" />
-		<property name="school" value="${foo.school}" />
+		class="com.slawomirlasik.springdemo.SlawkoSpeaker"
+		scope="singleton"> <!-- check singleton / prototype -->
+			
+			<property name="speachService" ref="shortSpeach" />
+	
+			<property name="email" value="${foo.email}" />
+			<property name="school" value="${foo.school}" />
+
 	</bean>
 
 
