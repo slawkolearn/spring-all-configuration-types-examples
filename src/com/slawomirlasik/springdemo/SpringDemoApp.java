@@ -10,10 +10,14 @@ public class SpringDemoApp {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		// get talker
-		Talker slawkoTalker = context.getBean("slawkoSpeaker", Talker.class);
+		SlawkoSpeaker slawkoTalker = context.getBean("slawkoSpeaker", SlawkoSpeaker.class);
 
 		// give speach
 		slawkoTalker.giveSpeach();
+		
+		// get the email and the school
+		System.out.println("Email: " + slawkoTalker.getEmail());
+		System.out.println("School: " + slawkoTalker.getSchool());
 
 		// close context
 		context.close();
