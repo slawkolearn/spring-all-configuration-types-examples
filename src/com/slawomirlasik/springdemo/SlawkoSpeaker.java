@@ -1,6 +1,8 @@
 package com.slawomirlasik.springdemo;
 
-public class SlawkoSpeaker implements Talker {
+import org.springframework.beans.factory.DisposableBean;
+
+public class SlawkoSpeaker implements Talker, DisposableBean {
 
 	private String email;
 
@@ -35,6 +37,14 @@ public class SlawkoSpeaker implements Talker {
 
 	public void setSchool(String school) {
 		this.school = school;
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("------------------------------------");
+		System.out.println(">> Sorry Slawko byebye !!");
+		System.out.println("------------------------------------");
+		
 	}
 
 	

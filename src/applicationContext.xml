@@ -24,14 +24,20 @@
 
 	<!-- Define the dependency -->
 
+	<!-- Bean custom processor to handle calling destory methods on prototype 
+		scoped beans -->
+	<bean id="customProcessor"
+		class="com.slawomirlasik.springdemo.MyCustomBeanProcessor"></bean>
+
 	<bean id="shortSpeach"
 		class="com.slawomirlasik.springdemo.ShortSpeachService"
-		init-method="checkTheTyposInSpeach"
-		destroy-method="burnThisSpeach">
+		init-method="checkTheTyposInSpeach" destroy-method="destroy"
+		scope="prototype">
 	</bean>
 
 	<bean id="slawkoSpeaker"
-		class="com.slawomirlasik.springdemo.SlawkoSpeaker" scope="singleton"> <!-- check singleton / prototype -->
+		class="com.slawomirlasik.springdemo.SlawkoSpeaker"
+		destroy-method="destroy" scope="prototype"> <!-- check singleton / prototype -->
 
 		<property name="speachService" ref="shortSpeach" />
 
@@ -39,6 +45,7 @@
 		<property name="school" value="${foo.school}" />
 
 	</bean>
+
 
 
 
