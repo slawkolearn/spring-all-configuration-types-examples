@@ -3,13 +3,14 @@ package com.slawomirlasik.springdemo;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Scope("prototype")
-public class SlawkoSpeaker implements Talker {
+public class SlawkoSpeaker implements Talker, DisposableBean  {
 
 	private SpeachService speachService;
 
@@ -34,6 +35,12 @@ public class SlawkoSpeaker implements Talker {
 	@PreDestroy
 	public void doMyCleanUpStuff() {
 		System.out.println("Cleaning the speach place..");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		doMyCleanUpStuff();
+		
 	}
 
 }
