@@ -6,16 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class SlawkoSpeaker implements Talker {
 
+	@Autowired
 	private SpeachService speachService;
 
 	@Override
 	public void giveSpeach() {
 		System.out.println(speachService.getSpeach());
-	}
-
-	@Autowired
-	public void setSpeachService(SpeachService speachService) {
-		this.speachService = speachService;
 	}
 
 }
