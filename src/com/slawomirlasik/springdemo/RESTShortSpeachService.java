@@ -2,8 +2,8 @@ package com.slawomirlasik.springdemo;
 
 import org.springframework.stereotype.Component;
 
-@Component("myServiceComponentManuallySet")
-public class ShortSpeachService implements SpeachService {
+@Component
+public class RESTShortSpeachService implements SpeachService {
 
 	@Override
 	public String getSpeach() {
