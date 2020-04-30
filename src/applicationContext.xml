@@ -8,6 +8,8 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+	<context:component-scan base-package="com.slawomirlasik.springdemo" />
+
 	<!-- Define your beans here -->
 	<!-- Add a logger config to see logging messages. - For more detailed logs, -->
 	<!-- set values to "FINEST" - For info on logging levels, see: http://www.vogella.com/tutorials/Logging/article.html -->
@@ -17,18 +19,6 @@
 		<property name="rootLoggerLevel" value="FINE" />
 		<property name="printedLoggerLevel" value="FINE" />
 	</bean>
-
-	<!-- Define the dependency -->
-
-	<bean id="shortSpeach"
-		class="com.slawomirlasik.springdemo.ShortSpeachService">
-	</bean>
-
-	<bean id="slawkoSpeaker"
-		class="com.slawomirlasik.springdemo.SlawkoSpeaker">
-		<constructor-arg ref="shortSpeach" />
-	</bean>
-
 
 
 </beans>
