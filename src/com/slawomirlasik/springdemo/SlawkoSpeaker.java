@@ -8,15 +8,14 @@ public class SlawkoSpeaker implements Talker {
 
 	private SpeachService speachService;
 
-	@Autowired
-	public SlawkoSpeaker(SpeachService speachService) {
-		super();
-		this.speachService = speachService;
-	}
-
 	@Override
 	public void giveSpeach() {
 		System.out.println(speachService.getSpeach());
+	}
+
+	@Autowired
+	public void setSpeachService(SpeachService speachService) {
+		this.speachService = speachService;
 	}
 
 }
