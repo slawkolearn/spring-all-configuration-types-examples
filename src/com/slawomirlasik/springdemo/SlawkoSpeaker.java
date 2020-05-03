@@ -8,7 +8,7 @@ public class SlawkoSpeaker implements Talker {
 
 	private SpeachService speachService;
 
-	@Autowired
+	
 	public SlawkoSpeaker(SpeachService speachService) {
 		super();
 		this.speachService = speachService;
